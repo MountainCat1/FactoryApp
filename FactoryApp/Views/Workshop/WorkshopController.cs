@@ -48,7 +48,7 @@ namespace FactoryApp.Views.Workshop
         // GET: Workshop/Create
         public IActionResult Create()
         {
-            ViewData["DirectorId"] = new SelectList(_context.Directors, "Id", "Id");
+            ViewData["DirectorId"] = new SelectList(_context.Directors, nameof(DirectorModel.Id), nameof(DirectorModel.FullName));
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace FactoryApp.Views.Workshop
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DirectorId"] = new SelectList(_context.Directors, "Id", "Id", workshopModel.DirectorId);
+            ViewData["DirectorId"] = new SelectList(_context.Directors, nameof(DirectorModel.Id), nameof(DirectorModel.FullName), workshopModel.DirectorId);
             return View(workshopModel);
         }
 
