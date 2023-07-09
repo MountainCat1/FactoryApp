@@ -29,6 +29,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Views\Repairmen\" />
       <Folder Include="Views\Workshop\" />
     </ItemGroup>
 

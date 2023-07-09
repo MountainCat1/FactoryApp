@@ -1,4 +1,4 @@
-﻿using FactoryApp.Models;
+using FactoryApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FactoryApp.Services;
@@ -15,6 +15,7 @@ public class FactoryDbContext : DbContext
         base.OnModelCreating(mb);
     }
 
-    public DbSet<DirectorModel> Directors { get; set; }
-    public DbSet<WorkshopModel> Workshops { get; set; }
+    public DbSet<DirectorModel> Directors { get; set; } = default!;
+    public DbSet<WorkshopModel> Workshops { get; set; } = default!;
+    public DbSet<RepairmenModel> Repairmen { get; set; } = default!;
 }
