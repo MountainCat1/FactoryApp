@@ -1,8 +1,23 @@
+using FactoryApp.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+// ====== CONFIGURATION ======
+var configuration = builder.Configuration;
 
+// ======= SERVICES =========
+var services = builder.Services;
+
+services.AddControllersWithViews();
+
+services.AddDbContext<FactoryDbContext>(builder =>
+{
+    builder.UseSqlite(configuration.GetConnectionString("FactoryDatabase"));
+});
+
+
+// ===== RUNTIME =====
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
